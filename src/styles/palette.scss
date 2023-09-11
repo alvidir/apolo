@@ -1,0 +1,39 @@
+/* color palette <https://coolors.co/f8f9fa-e9ecef-dee2e6-ced4da-adb5bd-6c757d-495057-343a40-212529-111315> */
+:root {
+  --apolo-light-0: #f8f9fa;
+  --apolo-light-1: #e9ecef;
+  --apolo-light-2: #dee2e6;
+  --apolo-light-3: #ced4da;
+  --apolo-light-4: #adb5bd;
+  --apolo-light-5: #6c757d;
+  --apolo-light-6: #495057;
+  --apolo-light-7: #343a40;
+  --apolo-light-8: #212529;
+  --apolo-light-9: #111315;
+}
+
+/* color palette <https://coolors.co/090A0B-15181a-212529-343a40-495057-6c757d-8d959d-adb5bd-ced4da-dee2e6> */
+:root {
+  --apolo-dark-0: #090a0b;
+  --apolo-dark-1: #15181a;
+  --apolo-dark-2: #212529;
+  --apolo-dark-3: #343a40;
+  --apolo-dark-4: #495057;
+  --apolo-dark-5: #6c757d;
+  --apolo-dark-6: #8d959d;
+  --apolo-dark-7: #adb5bd;
+  --apolo-dark-8: #ced4da;
+  --apolo-dark-9: #dee2e6;
+}
+
+:root {
+  --apolo-color-white: var(--apolo-light-0);
+  --apolo-color-black: var(--apolo-dark-0);
+
+  --apolo-color-tomato: #ff5248;
+  --apolo-color-blush: #cc5a71;
+  --apolo-color-sunglow: #ffd166;
+  --apolo-color-emerald: #16db93;
+  --apolo-color-majorelle-blue: #724cf9;
+  --apolo-color-sapphire: #4059ad;
+}
