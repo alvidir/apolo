@@ -1,11 +1,11 @@
-import installApolo from 'apolo'
+import { include } from 'apolo'
 
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 
 const app = createApp(App)
-installApolo(app)
+include(app)
 
 app.use(router)
 

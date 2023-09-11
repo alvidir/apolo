@@ -11,9 +11,11 @@
   "exports": {
     ".": {
       "import": "./dist/apolo.js",
-      "require": "./dist/apolo.umd.cjs"
+      "require": "./dist/apolo.umd.cjs",
+      "types": "./dist/index.d.ts"
     },
-    "./style.css": "./dist/style.css"
+    "./style.css": "./dist/style.css",
+    "./index.scss": "./dist/index.scss"
   },
   "types": "./dist/index.d.ts",
   "scripts": {

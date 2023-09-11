@@ -28,6 +28,8 @@ import DemoBlock from "@/components/DemoBlock.vue";
 </template>
 
 <style lang="scss">
+@import "apolo/index.scss";
+
 * {
   margin: 0;
   padding: 0;
