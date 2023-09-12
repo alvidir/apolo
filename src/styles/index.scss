@@ -1,5 +1,5 @@
-@import 'palette.scss';
-@import 'themes.scss';
+@import "palette.scss";
+@import "themes.scss";
 
 $FIB_RATIO: 1.61803398875;
 
@@ -21,7 +21,7 @@ $fib-15: 987; ///  0x3db
 $fib-16: 1597; //  0x63d
 
 .rounded {
-    $border-radius: $fib-5 * 1px;
+    $border-radius: $fib-4 * 1px;
 
     border-radius: ($border-radius);
 
@@ -48,8 +48,9 @@ $fib-16: 1597; //  0x63d
 
 $slower-fade: $fib-7 * 0.01s;
 $medium-fade: $fib-6 * 0.01s;
+$faster-fade: $fib-5 * 0.01s;
 
-.shadow-box {
+.shadow {
     $shift: $fib-3 * 1px;
     $blur: $fib-5 * 1px;
     $opacity: $fib-3 * 0.1;

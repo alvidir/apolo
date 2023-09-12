@@ -1,4 +1,4 @@
-@import 'palette.scss';
+@import "palette.scss";
 
 .theme-light {
     --color-background: var(--apolo-light-0);
@@ -10,12 +10,12 @@
     --color-text-disabled: var(--apolo-light-5);
 
     --color-button: var(--apolo-light-0);
-    --color-button-hover: var(--apolo-light-1);
+    --color-button-hover: var(--apolo-light-0);
     --color-button-active: var(--apolo-light-1);
     --color-button-disabled: var(--apolo-light-0);
 
-    --color-border: var(--apolo-light-3);
-    --color-border-hover: var(--apolo-light-4);
+    --color-border: var(--apolo-light-5);
+    --color-border-hover: var(--apolo-light-5);
     --color-border-active: var(--apolo-light-4);
     --color-border-disabled: var(--apolo-light-2);
 
@@ -33,12 +33,12 @@
     --color-text-disabled: var(--apolo-dark-5);
 
     --color-button: var(--apolo-dark-1);
-    --color-button-hover: var(--apolo-dark-3);
+    --color-button-hover: var(--apolo-dark-1);
     --color-button-active: var(--apolo-dark-3);
     --color-button-disabled: var(--apolo-dark-1);
 
     --color-border: var(--apolo-dark-4);
-    --color-border-hover: var(--apolo-dark-5);
+    --color-border-hover: var(--apolo-dark-6);
     --color-border-active: var(--apolo-dark-5);
     --color-border-disabled: var(--apolo-dark-3);
 

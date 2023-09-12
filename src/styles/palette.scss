@@ -15,25 +15,39 @@
 /* color palette <https://coolors.co/090A0B-15181a-212529-343a40-495057-6c757d-8d959d-adb5bd-ced4da-dee2e6> */
 :root {
     --apolo-dark-0: #090a0b;
-    --apolo-dark-1: #15181a;
-    --apolo-dark-2: #212529;
-    --apolo-dark-3: #343a40;
-    --apolo-dark-4: #495057;
-    --apolo-dark-5: #6c757d;
-    --apolo-dark-6: #8d959d;
+    --apolo-dark-1: #0f1113;
+    --apolo-dark-2: #15181a;
+    --apolo-dark-3: #212529;
+    --apolo-dark-4: #343a40;
+    --apolo-dark-5: #495057;
+    --apolo-dark-6: #6c757d;
     --apolo-dark-7: #adb5bd;
     --apolo-dark-8: #ced4da;
     --apolo-dark-9: #dee2e6;
 }
 
+/* color palette <https://coolors.co/cc5a71-ffd166-00c58d-724cf9-4059ad>*/
 :root {
-    --apolo-color-white: var(--apolo-light-0);
-    --apolo-color-black: var(--apolo-dark-0);
-
     --apolo-color-tomato: #ff5248;
     --apolo-color-blush: #cc5a71;
+    --apolo-color-icterine: #f4f642;
     --apolo-color-sunglow: #ffd166;
-    --apolo-color-emerald: #16db93;
+    --apolo-color-emerald: #09cb8f;
+    --apolo-color-mint: #00b98a;
+    --apolo-color-steel-pink: #d44ac1;
     --apolo-color-majorelle-blue: #724cf9;
+    --apolo-color-lapis-lazuli: #196083;
     --apolo-color-sapphire: #4059ad;
+}
+
+:root {
+    --color-submit: var(--apolo-color-mint);
+    --color-submit-hover: var(--apolo-color-mint);
+    --color-submit-border: var(--apolo-color-mint);
+
+    --color-error: var(--apolo-color-blush);
+    --color-warning: var(--apolo-color-sunglow);
+    --color-accent: var(--apolo-color-majorelle-blue);
+    --color-white: var(--apolo-light-0);
+    --color-black: var(--apolo-dark-0);
 }

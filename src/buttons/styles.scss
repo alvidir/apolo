@@ -1,17 +1,7 @@
-@import '../styles/index.scss';
+@import "../styles/index.scss";
 
 button {
-    &.regular,
-    &.submit {
-        transition:
-            background $medium-fade,
-            border-color $medium-fade,
-            font-size $slower-fade,
-            height $slower-fade;
-    }
-
-    &.regular,
-    &.submit {
+    &.regular {
         display: flex;
         align-items: center;
         justify-content: center;

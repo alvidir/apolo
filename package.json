@@ -14,8 +14,7 @@
             "require": "./dist/apolo.umd.cjs",
             "types": "./dist/index.d.ts"
         },
-        "./style.css": "./dist/style.css",
-        "./index.scss": "./dist/index.scss"
+        "./styles.scss": "./dist/index.scss"
     },
     "types": "./dist/index.d.ts",
     "scripts": {
@@ -32,8 +31,7 @@
     },
     "license": "MIT",
     "dependencies": {
-        "vue": "^3.3.4",
-        "vue-spinner": "^1.0.4"
+        "vue": "^3.3.4"
     },
     "devDependencies": {
         "@babel/types": "^7.22.17",
@@ -52,6 +50,7 @@
         "sass-loader": "^13.2.0",
         "typescript": "^5.1.6",
         "vite": "^4.4.9",
+        "vite-plugin-css-injected-by-js": "^3.3.0",
         "vite-plugin-dts": "^3.5.3",
         "vue-tsc": "^1.8.8"
     }

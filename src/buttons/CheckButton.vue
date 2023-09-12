@@ -1,37 +1,42 @@
 <script setup lang="ts">
 interface Props {
-    modelValue: boolean
-    disabled?: boolean
-    large?: boolean
-    color?: string
+    modelValue: boolean;
+    disabled?: boolean;
+    large?: boolean;
+    color?: string;
 }
 
 const props = withDefaults(defineProps<Props>(), {
     checked: false,
-    color: 'var(--color-green)'
-})
+    color: "var(--color-green)",
+});
 
 interface Events {
-    (e: 'change', payload: Event): void
-    (e: 'update:modelValue', payload: boolean): void
+    (e: "change", payload: Event): void;
+    (e: "update:modelValue", payload: boolean): void;
 }
 
-const emit = defineEmits<Events>()
+const emit = defineEmits<Events>();
 
 const onChange = (payload: Event) => {
     if (props.disabled) {
-        return
+        return;
     }
 
-    emit('update:modelValue', !props.modelValue)
-    emit('change', payload)
-}
+    emit("update:modelValue", !props.modelValue);
+    emit("change", payload);
+};
 </script>
 
 <template>
     <div class="check-button" :class="{ large: large, disabled: disabled }">
         <label>
-            <input type="checkbox" :checked="modelValue" :disabled="disabled" @change="onChange" />
+            <input
+                type="checkbox"
+                :checked="modelValue"
+                :disabled="disabled"
+                @change="onChange"
+            />
             <span></span>
             <slot></slot>
         </label>
@@ -40,8 +45,8 @@ const onChange = (payload: Event) => {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-@use 'sass:math';
-@import 'styles.scss';
+@use "sass:math";
+@import "styles.scss";
 
 $check-height: $fib-7 * 1px !default;
 
