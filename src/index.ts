@@ -5,11 +5,11 @@ import SwitchButton from './buttons/SwitchButton.vue'
 import CheckButton from './buttons/CheckButton.vue'
 
 function include(app: App): App {
-  return app
-    .component('regular-button', RegularButton)
-    .component('submit-button', SubmitButton)
-    .component('switch-button', SwitchButton)
-    .component('check-button', CheckButton)
+    return app
+        .component('regular-button', RegularButton)
+        .component('submit-button', SubmitButton)
+        .component('switch-button', SwitchButton)
+        .component('check-button', CheckButton)
 }
 
 export { include, RegularButton, SubmitButton, SwitchButton, CheckButton }

@@ -21,48 +21,48 @@ $fib-15: 987; ///  0x3db
 $fib-16: 1597; //  0x63d
 
 .rounded {
-  $border-radius: $fib-5 * 1px;
+    $border-radius: $fib-5 * 1px;
 
-  border-radius: ($border-radius);
+    border-radius: ($border-radius);
 
-  &.left-only {
-    border-radius: ($border-radius) 0 0 ($border-radius);
-    border-right: none !important;
-  }
+    &.left-only {
+        border-radius: ($border-radius) 0 0 ($border-radius);
+        border-right: none !important;
+    }
 
-  &.right-only {
-    border-radius: 0 ($border-radius) ($border-radius) 0;
-    border-left: none !important;
-  }
+    &.right-only {
+        border-radius: 0 ($border-radius) ($border-radius) 0;
+        border-left: none !important;
+    }
 
-  &.top-only {
-    border-radius: ($border-radius) ($border-radius) 0 0;
-    border-bottom: none !important;
-  }
+    &.top-only {
+        border-radius: ($border-radius) ($border-radius) 0 0;
+        border-bottom: none !important;
+    }
 
-  &.bottom-only {
-    border-radius: 0 0 ($border-radius) ($border-radius);
-    border-top: none !important;
-  }
+    &.bottom-only {
+        border-radius: 0 0 ($border-radius) ($border-radius);
+        border-top: none !important;
+    }
 }
 
 $slower-fade: $fib-7 * 0.01s;
 $medium-fade: $fib-6 * 0.01s;
 
 .shadow-box {
-  $shift: $fib-3 * 1px;
-  $blur: $fib-5 * 1px;
-  $opacity: $fib-3 * 0.1;
+    $shift: $fib-3 * 1px;
+    $blur: $fib-5 * 1px;
+    $opacity: $fib-3 * 0.1;
 
-  -webkit-box-shadow: 0px $shift $blur 0px rgba(0, 0, 0, $opacity) !important;
-  -moz-box-shadow: 0px $shift $blur 0px rgba(0, 0, 0, $opacity) !important;
-  box-shadow: 0px $shift $blur 0px rgba(0, 0, 0, $opacity) !important;
+    -webkit-box-shadow: 0px $shift $blur 0px rgba(0, 0, 0, $opacity) !important;
+    -moz-box-shadow: 0px $shift $blur 0px rgba(0, 0, 0, $opacity) !important;
+    box-shadow: 0px $shift $blur 0px rgba(0, 0, 0, $opacity) !important;
 }
 
 a {
-  color: var(--color-accent);
+    color: var(--color-accent);
 
-  &:not(:hover) {
-    text-decoration: none;
-  }
+    &:not(:hover) {
+        text-decoration: none;
+    }
 }
