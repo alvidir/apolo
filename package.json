@@ -18,6 +18,7 @@
     },
     "types": "./dist/index.d.ts",
     "scripts": {
+        "dev": "vite",
         "demo": "vite ./demo",
         "build": "run-p type-check build-only",
         "build-only": "vite build && vue-tsc --emitDeclarationOnly",

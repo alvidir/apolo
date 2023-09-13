@@ -25,7 +25,7 @@ const onClick = (payload: MouseEvent) => {
 
 <template>
     <button
-        class="regular rounded"
+        class="regular"
         :class="{
             large: large,
             disabled: disabled,
@@ -38,14 +38,16 @@ const onClick = (payload: MouseEvent) => {
     </button>
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
 @import "styles.scss";
 
 button.regular {
+    @extend .rounded;
+
     width: fit-content;
     padding-left: $fib-6 * 1px;
     padding-right: $fib-6 * 1px;
-    color: var(--color-text) !important;
+    color: var(--color-text);
 
     &.large {
         height: $fib-9 * 1px;
@@ -67,25 +69,13 @@ button.regular {
             border-color: var(--color-border-hover) !important;
         }
 
-        &.color:hover {
-            $color: v-bind(color);
-            $shift-x: $fib-3 * 1px;
-            $shift-y: $fib-3 * 1px;
-            $opacity: $fib-3 * 0.1;
-            $blur: 0px;
-
-            -webkit-box-shadow: $shift-x $shift-y $blur 0px $color !important;
-            -moz-box-shadow: $shift-x $shift-y $blur 0px $color !important;
-            box-shadow: $shift-x $shift-y $blur 0px $color !important;
-        }
-
         border-color: var(--color-border);
         color: var(--color-text);
 
         /* "to left" / "to right" - affects initial color */
         background: linear-gradient(
                 to left,
-                transparent 50%,
+                var(--color-button) 50%,
                 var(--color-button-hover) 50%
             )
             right;
@@ -95,6 +85,59 @@ button.regular {
 
     i {
         color: var(--color-text);
+    }
+}
+
+button.regular.color {
+    position: relative;
+
+    &::after {
+        @extend .rounded;
+
+        content: "";
+        position: absolute;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+
+        transform: translateX($fib-4 * 1px) translateY($fib-4 * 1px);
+        transition: $slower-fade !important;
+    }
+
+    &:not(:active)::after {
+        background: v-bind(color);
+        transform: translateX($fib-4 * 1px) translateY($fib-4 * 1px);
+        opacity: 0%;
+    }
+
+    &:active::after,
+    &:hover::after {
+        opacity: 100%;
+    }
+
+    &:active::after {
+        background-size: $fib-7 * 1px $fib-7 * 1px;
+        background-image: linear-gradient(
+            45deg,
+            v-bind(color) 25%,
+            transparent 25%,
+            transparent 50%,
+            v-bind(color) 50%,
+            v-bind(color) 75%,
+            transparent 75%,
+            transparent
+        );
+
+        animation: barberpole $fib-6 * 0.1s linear infinite;
+    }
+}
+
+@keyframes barberpole {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 100px;
     }
 }
 </style>

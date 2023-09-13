@@ -10,6 +10,7 @@
     ],
     "compilerOptions": {
         "outDir": "dist",
-        "declaration": true
-    }
+        "declaration": true,
+    },
+    "exclude": ["index.html", "src/App.vue", "src/main.ts"],
 }
