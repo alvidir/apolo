@@ -48,6 +48,7 @@ button.regular {
     padding-left: $fib-6 * 1px;
     padding-right: $fib-6 * 1px;
     color: var(--color-text);
+    position: relative;
 
     &.large {
         height: $fib-9 * 1px;
@@ -89,8 +90,6 @@ button.regular {
 }
 
 button.regular.color {
-    position: relative;
-
     &::after {
         @extend .rounded;
 

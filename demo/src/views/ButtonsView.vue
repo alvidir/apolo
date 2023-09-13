@@ -19,6 +19,5 @@ import DemoRow from "@/components/DemoRow.vue";
 button.regular {
     min-width: $fib-13 * 1px;
     // font-weight: 700;
-    font-family: "Courier Prime", monospace;
 }
 </style>

@@ -29,7 +29,7 @@ import { RouterLink, RouterView } from "vue-router";
 * {
     margin: 0;
     padding: 0;
-    font-family: "Raleway", Helvetica, Arial, sans-serif;
+    font-family: "Courier Prime", monospace;
 }
 
 html {
