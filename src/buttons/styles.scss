@@ -1,35 +1,5 @@
 @import "../styles/index.scss";
 
-button {
-    &.regular {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: $fib-8 * 1px;
-        border: $fib-1 * 1px solid;
-        white-space: nowrap;
-        font-size: medium;
-        outline: none;
-
-        &.disabled {
-            border-color: var(--color-border-disabled);
-            background: var(--color-button-disabled);
-            color: var(--color-text-disabled);
-
-            i {
-                color: var(--color-text-disabled);
-            }
-        }
-
-        i {
-            font-size: $fib-7 * 1px;
-            &:first-child {
-                padding-right: $fib-6 * 1px;
-            }
-        }
-    }
-}
-
 .switch-button,
 .check-button {
     transition:

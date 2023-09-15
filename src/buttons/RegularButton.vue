@@ -1,8 +1,9 @@
 <script setup lang="ts">
 interface Props {
     disabled?: boolean;
-    large?: boolean;
+    loading?: boolean;
     active?: boolean;
+    large?: boolean;
     color?: string;
 }
 
@@ -24,34 +25,73 @@ const onClick = (payload: MouseEvent) => {
 </script>
 
 <template>
-    <button
-        class="regular"
-        :class="{
-            large: large,
-            disabled: disabled,
-            active: active,
-            color: color,
-        }"
-        @click="onClick"
-    >
-        <slot></slot>
-    </button>
+    <div class="regular-button-container">
+        <button
+            class="regular"
+            :disabled="loading"
+            :class="{
+                disabled: disabled,
+                loading: loading,
+                active: active,
+                large: large,
+                color: color,
+            }"
+            @click="onClick"
+        >
+            <slot></slot>
+        </button>
+    </div>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
 @import "styles.scss";
+
+.regular-button-container {
+    /* create a new stacking context */
+    position: relative;
+    z-index: 1;
+}
 
 button.regular {
     @extend .rounded;
 
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
     width: fit-content;
+    height: $fib-8 * 1px;
+    border: $fib-1 * 1px solid;
     padding-left: $fib-6 * 1px;
     padding-right: $fib-6 * 1px;
     color: var(--color-text);
-    position: relative;
+    white-space: nowrap;
+    font-size: medium;
+    outline: none;
 
     &.large {
         height: $fib-9 * 1px;
+    }
+
+    &.disabled {
+        border-color: var(--color-border-disabled);
+        background: var(--color-button-disabled);
+        color: var(--color-text-disabled);
+
+        i {
+            color: var(--color-text-disabled);
+        }
+    }
+
+    i {
+        color: var(--color-text);
+        font-size: medium;
+
+        $padding: $fib-6 * 1px;
+
+        &:first-child {
+            padding-right: $padding;
+        }
     }
 
     &:not(.disabled) {
@@ -65,7 +105,9 @@ button.regular {
         //     border-color: var(--color-border-active) !important;
         // }
 
-        &:hover {
+        &:hover,
+        &.active,
+        &.loading {
             background-position: left;
             border-color: var(--color-border-hover) !important;
         }
@@ -80,49 +122,48 @@ button.regular {
                 var(--color-button-hover) 50%
             )
             right;
+
         background-size: 200%;
         transition: $slower-fade;
     }
-
-    i {
-        color: var(--color-text);
-    }
 }
 
-button.regular.color {
+button.regular:not(.disabled).color {
     &::after {
         @extend .rounded;
 
         content: "";
-        position: absolute;
-        z-index: -1;
         width: 100%;
         height: 100%;
-
-        transform: translateX($fib-4 * 1px) translateY($fib-4 * 1px);
         transition: $slower-fade !important;
+
+        /* create a new stacking context */
+        position: absolute;
+        z-index: -1; /* to be below the parent element */
     }
 
-    &:not(:active)::after {
-        background: v-bind(color);
-        transform: translateX($fib-4 * 1px) translateY($fib-4 * 1px);
+    $background: v-bind(color);
+    &:not(.loading)::after {
+        background: $background;
         opacity: 0%;
     }
 
-    &:active::after,
+    &.loading::after,
+    &.active::after,
     &:hover::after {
         opacity: 100%;
+        transform: translateX($fib-4 * 1px) translateY($fib-4 * 1px);
     }
 
-    &:active::after {
+    &.loading::after {
         background-size: $fib-7 * 1px $fib-7 * 1px;
         background-image: linear-gradient(
             45deg,
-            v-bind(color) 25%,
+            $background 25%,
             transparent 25%,
             transparent 50%,
-            v-bind(color) 50%,
-            v-bind(color) 75%,
+            $background 50%,
+            $background 75%,
             transparent 75%,
             transparent
         );

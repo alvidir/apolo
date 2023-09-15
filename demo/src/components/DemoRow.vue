@@ -14,10 +14,10 @@
 @import "apolo/styles.scss";
 
 .parallelogram {
-    // position: absolute;
+    position: absolute;
     width: 100%;
     height: 100%;
-    // transform: skew(-20deg);
+    transform: skew(-20deg);
     right: -5%;
     background: var(--color-background);
 }
@@ -36,12 +36,12 @@
         height: 100%;
 
         &.info {
-            flex: 2;
+            flex: 1;
             color: var(--color-text);
         }
 
         &.demo {
-            flex: 1;
+            flex: 0.7;
             display: flex;
             align-items: center;
             justify-content: center;

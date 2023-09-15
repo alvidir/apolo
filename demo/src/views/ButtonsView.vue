@@ -8,6 +8,7 @@ import DemoRow from "@/components/DemoRow.vue";
             <h1>Regular button</h1>
         </template>
         <regular-button color="var(--color-submit)" large>
+            <i class="bx bxs-bulb"></i>
             I'm a button
         </regular-button>
     </demo-row>
@@ -17,7 +18,6 @@ import DemoRow from "@/components/DemoRow.vue";
 @import "apolo/styles.scss";
 
 button.regular {
-    min-width: $fib-13 * 1px;
-    // font-weight: 700;
+    min-width: $fib-12 * 1px;
 }
 </style>

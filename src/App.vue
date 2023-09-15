@@ -3,9 +3,12 @@ import RegularButton from "./buttons/RegularButton.vue";
 </script>
 
 <template>
-    <regular-button color="var(--color-submit)" large>
-        I'm a button
-    </regular-button>
+    <div id="container">
+        <regular-button color="var(--color-submit)" loading large>
+            <i class="bx bxs-bulb"></i>
+            I'm a button
+        </regular-button>
+    </div>
 </template>
 
 <style lang="scss">
@@ -25,16 +28,22 @@ html {
 body {
     min-height: 100vh;
     width: 100%;
-    background: var(--color-bg-secondary);
 }
 
 #app {
+    height: 100vh;
+}
+
+#container {
     display: flex;
     align-items: center;
     flex-direction: column;
-    height: 100vh;
+    width: 100%;
+    height: fit-content;
     padding: $fib-5 * 1px;
     box-sizing: border-box;
+    background: var(--color-background);
+    position: relative;
 }
 
 button.regular {
