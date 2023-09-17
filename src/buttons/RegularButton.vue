@@ -83,28 +83,7 @@ button.regular {
         }
     }
 
-    i {
-        color: var(--color-text);
-        font-size: medium;
-
-        $padding: $fib-6 * 1px;
-
-        &:first-child {
-            padding-right: $padding;
-        }
-    }
-
     &:not(.disabled) {
-        // &:not(.off):hover {
-        //     background: var(--color-button-hover);
-        //     border-color: var(--color-border-hover);
-        // }
-
-        // &.active {
-        //     background: var(--color-button-active) !important;
-        //     border-color: var(--color-border-active) !important;
-        // }
-
         &:hover,
         &.active,
         &.loading {
@@ -126,49 +105,60 @@ button.regular {
         background-size: 200%;
         transition: $slower-fade;
     }
-}
 
-button.regular:not(.disabled).color {
-    &::after {
-        @extend .rounded;
+    i {
+        color: var(--color-text);
+        font-size: medium;
 
-        content: "";
-        width: 100%;
-        height: 100%;
-        transition: $slower-fade !important;
+        $padding: $fib-6 * 1px;
 
-        /* create a new stacking context */
-        position: absolute;
-        z-index: -1; /* to be below the parent element */
+        &:first-child {
+            padding-right: $padding;
+        }
     }
 
-    $background: v-bind(color);
-    &:not(.loading)::after {
-        background: $background;
-        opacity: 0%;
-    }
+    &:not(.disabled).color {
+        &::after {
+            @extend .rounded;
 
-    &.loading::after,
-    &.active::after,
-    &:hover::after {
-        opacity: 100%;
-        transform: translateX($fib-4 * 1px) translateY($fib-4 * 1px);
-    }
+            content: "";
+            width: 100%;
+            height: 100%;
+            transition: $slower-fade !important;
 
-    &.loading::after {
-        background-size: $fib-7 * 1px $fib-7 * 1px;
-        background-image: linear-gradient(
-            45deg,
-            $background 25%,
-            transparent 25%,
-            transparent 50%,
-            $background 50%,
-            $background 75%,
-            transparent 75%,
-            transparent
-        );
+            /* create a new stacking context */
+            position: absolute;
+            z-index: -1; /* to be below the parent element */
+        }
 
-        animation: barberpole $fib-6 * 0.1s linear infinite;
+        $background: v-bind(color);
+        &:not(.loading)::after {
+            background: $background;
+            opacity: 0%;
+        }
+
+        &.loading::after,
+        &.active::after,
+        &:hover::after {
+            opacity: 100%;
+            transform: translateX($fib-4 * 1px) translateY($fib-4 * 1px);
+        }
+
+        &.loading::after {
+            background-size: $fib-7 * 1px $fib-7 * 1px;
+            background-image: linear-gradient(
+                45deg,
+                $background 25%,
+                transparent 25%,
+                transparent 50%,
+                $background 50%,
+                $background 75%,
+                transparent 75%,
+                transparent
+            );
+
+            animation: barberpole $fib-6 * 0.1s linear infinite;
+        }
     }
 }
 

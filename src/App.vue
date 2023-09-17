@@ -1,13 +1,15 @@
 <script setup lang="ts">
-import RegularButton from "./buttons/RegularButton.vue";
+import SwitchButton from "./buttons/SwitchButton.vue";
+
+let status = false;
 </script>
 
 <template>
     <div id="container">
-        <regular-button color="var(--color-submit)" loading large>
+        <switch-button v-model="status" large>
             <i class="bx bxs-bulb"></i>
             I'm a button
-        </regular-button>
+        </switch-button>
     </div>
 </template>
 
@@ -22,7 +24,7 @@ import RegularButton from "./buttons/RegularButton.vue";
 
 html {
     @extend .theme-dark;
-    background: var(--color-background);
+    background: var(--color-background-secondary);
 }
 
 body {
@@ -42,11 +44,7 @@ body {
     height: fit-content;
     padding: $fib-5 * 1px;
     box-sizing: border-box;
-    background: var(--color-background);
+    background: var(--color-background-secondary);
     position: relative;
-}
-
-button.regular {
-    min-width: $fib-13 * 1px;
 }
 </style>

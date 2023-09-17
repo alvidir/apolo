@@ -47,13 +47,13 @@ const onChange = (payload: Event) => {
 @use "sass:math";
 @import "styles.scss";
 
-$switch-height: $fib-7 * 1px !default;
+$switch-height: $fib-7 * 1.1px !default;
 $switch-width: $FIB_RATIO * $switch-height !default;
 
 .switch-button {
     position: relative;
-    height: $switch-height;
-    width: $switch-width;
+    height: fit-content;
+    width: fit-content;
 
     label {
         display: flex;
@@ -73,7 +73,8 @@ $switch-width: $FIB_RATIO * $switch-height !default;
 
         &:checked + span {
             /* Teal background */
-            background: v-bind(color);
+            background-position: left;
+            border: 1px v-bind(color) solid !important;
         }
 
         &:checked + span::before {
@@ -83,19 +84,32 @@ $switch-width: $FIB_RATIO * $switch-height !default;
     }
 
     span {
+        @extend .rounded;
+
         /* Vertically center the inner circle */
         position: relative;
         height: $switch-height;
         flex-basis: $switch-width;
 
-        /* Make the container element rounded */
-        border-radius: $switch-height;
-        background: var(--color-border);
+        border: 1px var(--color-border) solid;
+
+        /* "to left" / "to right" - affects initial color */
+        background: linear-gradient(
+                to left,
+                var(--color-border) 50%,
+                v-bind(color) 50%
+            )
+            right;
+
+        background-size: 200%;
+        transition: $slower-fade;
 
         /* In case the label gets long, the toggle shouldn't shrink. */
         flex-shrink: 0;
 
         &::before {
+            @extend .rounded;
+
             content: "";
             position: absolute;
 
@@ -103,11 +117,8 @@ $switch-width: $FIB_RATIO * $switch-height !default;
             height: $switch-height - math.div($fib-5, 2) * 1px;
             width: $switch-height - math.div($fib-5, 2) * 1px;
 
-            /* Make the inner circle fully rounded */
-            border-radius: 9999px;
             background: var(--color-button);
-
-            border: 2px solid var(--color-text-disabled);
+            border: 2px solid var(--color-border);
         }
     }
 
@@ -127,7 +138,6 @@ $switch-width: $FIB_RATIO * $switch-height !default;
         span {
             height: $switch-height;
             flex-basis: $switch-width;
-            border-radius: $switch-height;
 
             &::before {
                 height: $switch-height - math.div($fib-5, 2) * 1px;
@@ -137,6 +147,8 @@ $switch-width: $FIB_RATIO * $switch-height !default;
     }
 
     &:not(.disabled):hover span {
+        border: 1px var(--color-border-hover) solid;
+
         &::before {
             background: var(--color-button-hover);
         }

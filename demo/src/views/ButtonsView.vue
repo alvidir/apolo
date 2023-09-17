@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import DemoRow from "@/components/DemoRow.vue";
+
+let switchButtonStatus = false;
 </script>
 
 <template>
@@ -11,6 +13,15 @@ import DemoRow from "@/components/DemoRow.vue";
             <i class="bx bxs-bulb"></i>
             I'm a button
         </regular-button>
+    </demo-row>
+    <demo-row>
+        <template #info>
+            <h1>Switch button</h1>
+        </template>
+        <switch-button v-model="switchButtonStatus">
+            <i class="bx bxs-bulb"></i>
+            I'm a button
+        </switch-button>
     </demo-row>
 </template>
 
