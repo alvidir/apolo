@@ -1,14 +1,11 @@
 import type { App } from "vue";
-import RegularButton from "./buttons/RegularButton.vue";
-import SwitchButton from "./buttons/SwitchButton.vue";
-import CheckButton from "./buttons/CheckButton.vue";
-import "./styles/index.scss";
+import AButton from "./AButton.vue";
+import ASwitch from "./ASwitch.vue";
 
 function include(app: App): App {
     return app
-        .component("regular-button", RegularButton)
-        .component("switch-button", SwitchButton)
-        .component("check-button", CheckButton);
+        .component("a-button", AButton)
+        .component("a-switch", ASwitch);
 }
 
-export { include, RegularButton, SwitchButton, CheckButton };
+export { include, AButton, ASwitch };

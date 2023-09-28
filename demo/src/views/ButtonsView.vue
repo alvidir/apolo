@@ -9,10 +9,10 @@ let switchButtonStatus = false;
         <template #info>
             <h1>Regular button</h1>
         </template>
-        <regular-button color="var(--color-submit)" large>
+        <a-button color="var(--color-submit)" large>
             <i class="bx bxs-bulb"></i>
             I'm a button
-        </regular-button>
+        </a-button>
     </demo-row>
     <demo-row>
         <template #info>
@@ -28,7 +28,7 @@ let switchButtonStatus = false;
 <style lang="scss">
 @import "apolo/styles.scss";
 
-button.regular {
+button {
     min-width: $fib-12 * 1px;
 }
 </style>

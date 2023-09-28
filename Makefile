@@ -1,6 +1,6 @@
 .DEFAULT_GOAL := all
 
-all: dist
+all: clean dist
 	@cd demo && npm install && npm run build
 
 install:

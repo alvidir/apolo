@@ -1,15 +1,14 @@
 <script setup lang="ts">
-import SwitchButton from "./buttons/SwitchButton.vue";
-
-let status = false;
+import ACard from "./ACard.vue";
 </script>
 
 <template>
     <div id="container">
-        <switch-button v-model="status" large>
-            <i class="bx bxs-bulb"></i>
-            I'm a button
-        </switch-button>
+        <a-card color="var(--color-accent)">
+            <template #header>this is a header</template>
+            this is a body
+            <template #footer>this is a footer</template>
+        </a-card>
     </div>
 </template>
 
@@ -44,7 +43,6 @@ body {
     height: fit-content;
     padding: $fib-5 * 1px;
     box-sizing: border-box;
-    background: var(--color-background-secondary);
     position: relative;
 }
 </style>

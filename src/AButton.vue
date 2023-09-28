@@ -25,9 +25,8 @@ const onClick = (payload: MouseEvent) => {
 </script>
 
 <template>
-    <div class="regular-button-container">
+    <div class="a-button">
         <button
-            class="regular"
             :disabled="loading"
             :class="{
                 disabled: disabled,
@@ -44,15 +43,15 @@ const onClick = (payload: MouseEvent) => {
 </template>
 
 <style lang="scss">
-@import "styles.scss";
+@import "styles/index.scss";
 
-.regular-button-container {
+.a-button {
     /* create a new stacking context */
     position: relative;
     z-index: 1;
 }
 
-button.regular {
+.a-button > button {
     @extend .rounded;
 
     display: flex;
@@ -106,17 +105,6 @@ button.regular {
         transition: $slower-fade;
     }
 
-    i {
-        color: var(--color-text);
-        font-size: medium;
-
-        $padding: $fib-6 * 1px;
-
-        &:first-child {
-            padding-right: $padding;
-        }
-    }
-
     &:not(.disabled).color {
         &::after {
             @extend .rounded;
@@ -158,6 +146,17 @@ button.regular {
             );
 
             animation: barberpole $fib-6 * 0.1s linear infinite;
+        }
+    }
+
+    & > i {
+        color: var(--color-text);
+        font-size: medium;
+
+        $padding: $fib-6 * 1px;
+
+        &:first-child {
+            padding-right: $padding;
         }
     }
 }

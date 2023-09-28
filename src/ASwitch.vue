@@ -2,7 +2,6 @@
 interface Props {
     modelValue: boolean;
     disabled?: boolean;
-    large?: boolean;
     color?: string;
 }
 
@@ -29,7 +28,7 @@ const onChange = (payload: Event) => {
 </script>
 
 <template>
-    <div class="switch-button" :class="{ large: large, disabled: disabled }">
+    <div class="a-switch" :class="{ disabled: disabled }">
         <label>
             <input
                 type="checkbox"
@@ -45,19 +44,24 @@ const onChange = (payload: Event) => {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 @use "sass:math";
-@import "styles.scss";
+@import "styles/index.scss";
 
-$switch-height: $fib-7 * 1.1px !default;
-$switch-width: $FIB_RATIO * $switch-height !default;
-
-.switch-button {
+.a-switch {
     position: relative;
     height: fit-content;
     width: fit-content;
 
+    $switch-height: $fib-7 * 1px !default;
+    $switch-width: $FIB_RATIO * $switch-height !default;
+
+    transition:
+        height $slower-fade,
+        width $slower-fade;
+
     label {
         display: flex;
         width: fit-content;
+        transition: color $medium-fade;
     }
 
     input {
@@ -73,7 +77,8 @@ $switch-width: $FIB_RATIO * $switch-height !default;
 
         &:checked + span {
             /* Teal background */
-            background-position: left;
+            // background-position: left;
+            background-color: v-bind(color);
             border: 1px v-bind(color) solid !important;
         }
 
@@ -81,6 +86,17 @@ $switch-width: $FIB_RATIO * $switch-height !default;
             border-color: v-bind(color);
             transform: translateX($switch-width - $switch-height);
         }
+    }
+
+    span,
+    span::before {
+        transition:
+            background $medium-fade,
+            border-color $medium-fade,
+            height $slower-fade,
+            width $slower-fade,
+            flex-basis $slower-fade,
+            transform $slower-fade;
     }
 
     span {
@@ -94,14 +110,15 @@ $switch-width: $FIB_RATIO * $switch-height !default;
         border: 1px var(--color-border) solid;
 
         /* "to left" / "to right" - affects initial color */
-        background: linear-gradient(
-                to left,
-                var(--color-border) 50%,
-                v-bind(color) 50%
-            )
-            right;
+        // background: linear-gradient(
+        //         to left,
+        //         var(--color-border) 50%,
+        //         v-bind(color) 50%
+        //     )
+        //     right;
 
-        background-size: 200%;
+        // background-size: 200%;
+        background-color: var(--color-border);
         transition: $slower-fade;
 
         /* In case the label gets long, the toggle shouldn't shrink. */
@@ -122,42 +139,19 @@ $switch-width: $FIB_RATIO * $switch-height !default;
         }
     }
 
-    &.large {
-        $switch-height: $fib-8 * 1px;
-        $switch-width: $FIB_RATIO * $switch-height;
-
-        height: $switch-height;
-        width: $switch-width;
-
-        input {
-            &:checked + span::before {
-                transform: translateX($switch-width - $switch-height);
-            }
-        }
-
-        span {
-            height: $switch-height;
-            flex-basis: $switch-width;
-
-            &::before {
-                height: $switch-height - math.div($fib-5, 2) * 1px;
-                width: $switch-height - math.div($fib-5, 2) * 1px;
-            }
-        }
-    }
-
     &:not(.disabled):hover span {
         border: 1px var(--color-border-hover) solid;
 
-        &::before {
-            background: var(--color-button-hover);
-        }
+        // &::before {
+        //     background: var(--color-button-hover);
+        // }
     }
 }
 
 .disabled {
     span {
         background: var(--color-border-disabled);
+        border-color: var(--color-border-disabled);
 
         &::before {
             background: var(--color-button-disabled);
