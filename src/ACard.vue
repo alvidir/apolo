@@ -61,12 +61,11 @@ const slots = useSlots();
     }
 
     &::after {
-        @extend .rounded;
+        @extend .rounded, .fade, .slowly;
 
         content: "";
         width: 100%;
         height: 100%;
-        transition: $slower-fade !important;
         opacity: 0%;
 
         /* create a new stacking context */

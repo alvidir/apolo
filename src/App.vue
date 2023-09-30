@@ -1,14 +1,13 @@
 <script setup lang="ts">
-import ACard from "./ACard.vue";
+import { ref } from "vue";
+import ASwitch from "./ASwitch.vue";
+
+const onoff = ref(false);
 </script>
 
 <template>
     <div id="container">
-        <a-card color="var(--color-accent)">
-            <template #header>this is a header</template>
-            this is a body
-            <template #footer>this is a footer</template>
-        </a-card>
+        <a-switch v-model="onoff"> </a-switch>
     </div>
 </template>
 

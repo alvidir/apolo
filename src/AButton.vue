@@ -27,6 +27,7 @@ const onClick = (payload: MouseEvent) => {
 <template>
     <div class="a-button">
         <button
+            class="fade slowly"
             :disabled="loading"
             :class="{
                 disabled: disabled,
@@ -102,17 +103,15 @@ const onClick = (payload: MouseEvent) => {
             right;
 
         background-size: 200%;
-        transition: $slower-fade;
     }
 
     &:not(.disabled).color {
         &::after {
-            @extend .rounded;
+            @extend .rounded, .fade, .slowly;
 
             content: "";
             width: 100%;
             height: 100%;
-            transition: $slower-fade !important;
 
             /* create a new stacking context */
             position: absolute;

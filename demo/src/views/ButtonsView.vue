@@ -1,28 +1,35 @@
 <script setup lang="ts">
-import DemoRow from "@/components/DemoRow.vue";
+import { ref } from "vue";
+import DemoItem from "@/components/DemoItem.vue";
+import { AButton } from "apolo";
 
-let switchButtonStatus = false;
+const aButtonProps = ref({
+    color: "var(--color-submit)",
+});
+
+const aSwitchProps = ref({
+    vModel: false,
+});
 </script>
 
 <template>
-    <demo-row>
+    <demo-item>
         <template #info>
-            <h1>Regular button</h1>
+            <span>AButton</span>
+            <p class="secondary">A general purpose button.</p>
         </template>
-        <a-button color="var(--color-submit)" large>
+        <a-button v-bind="aButtonProps">
             <i class="bx bxs-bulb"></i>
             I'm a button
         </a-button>
-    </demo-row>
-    <demo-row>
+    </demo-item>
+    <demo-item>
         <template #info>
-            <h1>Switch button</h1>
+            <span>ASwitch</span>
+            <p class="secondary">A switch like button.</p>
         </template>
-        <switch-button v-model="switchButtonStatus">
-            <i class="bx bxs-bulb"></i>
-            I'm a button
-        </switch-button>
-    </demo-row>
+        <a-switch v-bind="aSwitchProps"> </a-switch>
+    </demo-item>
 </template>
 
 <style lang="scss">

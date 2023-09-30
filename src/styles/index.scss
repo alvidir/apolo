@@ -26,38 +26,57 @@ $fib-16: 1597; //  0x63d
     border-radius: ($border-radius);
 
     &.left-only {
-        border-radius: ($border-radius) 0 0 ($border-radius);
-        border-right: none !important;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
     }
 
     &.right-only {
-        border-radius: 0 ($border-radius) ($border-radius) 0;
-        border-left: none !important;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
     }
 
     &.top-only {
-        border-radius: ($border-radius) ($border-radius) 0 0;
-        border-bottom: none !important;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
     }
 
     &.bottom-only {
-        border-radius: 0 0 ($border-radius) ($border-radius);
-        border-top: none !important;
+        border-top-right-radius: 0;
+        border-top-left-radius: 0;
     }
 }
 
-$slower-fade: $fib-7 * 0.01s;
-$medium-fade: $fib-6 * 0.01s;
-$faster-fade: $fib-5 * 0.01s;
+.fade {
+    transition-duration: $fib-6 * 0.01s;
+    transition-timing-function: ease-in-out;
 
-.shadow {
-    $shift: $fib-3 * 1px;
-    $blur: $fib-5 * 1px;
-    $opacity: $fib-3 * 0.1;
+    &.slowly {
+        transition-duration: $fib-7 * 0.01s;
+    }
 
-    -webkit-box-shadow: 0px $shift $blur 0px rgba(0, 0, 0, $opacity) !important;
-    -moz-box-shadow: 0px $shift $blur 0px rgba(0, 0, 0, $opacity) !important;
-    box-shadow: 0px $shift $blur 0px rgba(0, 0, 0, $opacity) !important;
+    &.quickly {
+        transition-duration: $fib-5 * 0.01s;
+    }
+}
+
+// .shadow {
+//     $shift: $fib-3 * 1px;
+//     $blur: $fib-5 * 1px;
+//     $opacity: $fib-3 * 0.1;
+
+//     -webkit-box-shadow: 0px $shift $blur 0px rgba(0, 0, 0, $opacity) !important;
+//     -moz-box-shadow: 0px $shift $blur 0px rgba(0, 0, 0, $opacity) !important;
+//     box-shadow: 0px $shift $blur 0px rgba(0, 0, 0, $opacity) !important;
+// }
+
+* {
+    color: var(--color-text);
+    font-size: medium;
+
+    &.secondary {
+        color: var(--color-text-secondary);
+        font-size: smaller;
+    }
 }
 
 a {

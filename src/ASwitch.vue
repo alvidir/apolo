@@ -28,7 +28,7 @@ const onChange = (payload: Event) => {
 </script>
 
 <template>
-    <div class="a-switch" :class="{ disabled: disabled }">
+    <div class="a-switch fade slowly" :class="{ disabled: disabled }">
         <label>
             <input
                 type="checkbox"
@@ -36,7 +36,7 @@ const onChange = (payload: Event) => {
                 :disabled="disabled"
                 @change="onChange"
             />
-            <span></span>
+            <span class="rounded fade slowly"></span>
         </label>
     </div>
 </template>
@@ -47,21 +47,16 @@ const onChange = (payload: Event) => {
 @import "styles/index.scss";
 
 .a-switch {
-    position: relative;
-    height: fit-content;
-    width: fit-content;
-
     $switch-height: $fib-7 * 1px !default;
     $switch-width: $FIB_RATIO * $switch-height !default;
 
-    transition:
-        height $slower-fade,
-        width $slower-fade;
+    position: relative;
+    height: $switch-height;
+    width: $switch-width;
 
     label {
         display: flex;
         width: fit-content;
-        transition: color $medium-fade;
     }
 
     input {
@@ -88,20 +83,7 @@ const onChange = (payload: Event) => {
         }
     }
 
-    span,
-    span::before {
-        transition:
-            background $medium-fade,
-            border-color $medium-fade,
-            height $slower-fade,
-            width $slower-fade,
-            flex-basis $slower-fade,
-            transform $slower-fade;
-    }
-
     span {
-        @extend .rounded;
-
         /* Vertically center the inner circle */
         position: relative;
         height: $switch-height;
@@ -119,13 +101,12 @@ const onChange = (payload: Event) => {
 
         // background-size: 200%;
         background-color: var(--color-border);
-        transition: $slower-fade;
 
         /* In case the label gets long, the toggle shouldn't shrink. */
         flex-shrink: 0;
 
         &::before {
-            @extend .rounded;
+            @extend .rounded, .fade, .slowly;
 
             content: "";
             position: absolute;
@@ -136,15 +117,17 @@ const onChange = (payload: Event) => {
 
             background: var(--color-button);
             border: 2px solid var(--color-border);
+
+            transition-property: background, border-color, transform;
         }
     }
 
     &:not(.disabled):hover span {
         border: 1px var(--color-border-hover) solid;
 
-        // &::before {
-        //     background: var(--color-button-hover);
-        // }
+        &::before {
+            background: var(--color-button-hover);
+        }
     }
 }
 

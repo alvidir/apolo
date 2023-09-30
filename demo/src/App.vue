@@ -20,15 +20,15 @@ import { RouterLink, RouterView } from "vue-router";
         </div> -->
     </header>
 
-    <RouterView />
+    <section>
+        <RouterView />
+    </section>
 </template>
 
 <style lang="scss">
 @import "apolo/styles.scss";
 
 * {
-    margin: 0;
-    padding: 0;
     font-family: "Courier Prime", monospace;
 }
 
@@ -41,6 +41,8 @@ body {
     min-height: 100vh;
     width: 100%;
     background: var(--color-bg-secondary);
+    margin: 0;
+    padding: 0;
 }
 
 #app {
@@ -50,5 +52,14 @@ body {
     height: 100vh;
     padding: $fib-5 * 1px;
     box-sizing: border-box;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: $fib-6 * 1px;
+    width: 100%;
 }
 </style>
