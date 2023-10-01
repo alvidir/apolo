@@ -43,12 +43,15 @@ const slots = useSlots();
 
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     position: relative;
     width: 100%;
     height: 100%;
     background: var(--color-background);
     border: 1px solid var(--color-border);
+
+    & > .body {
+        flex: 1;
+    }
 
     & > .header,
     & > .body,

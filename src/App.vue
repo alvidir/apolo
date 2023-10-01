@@ -1,13 +1,14 @@
 <script setup lang="ts">
-import { ref } from "vue";
-import ASwitch from "./ASwitch.vue";
-
-const onoff = ref(false);
+import ACard from "./ACard.vue";
 </script>
 
 <template>
     <div id="container">
-        <a-switch v-model="onoff"> </a-switch>
+        <a-card>
+            <template #header>this is a header</template>
+            <span>this is a body</span>
+            <template #footer>this is a footer</template>
+        </a-card>
     </div>
 </template>
 
@@ -21,7 +22,7 @@ const onoff = ref(false);
 }
 
 html {
-    @extend .theme-dark;
+    @extend .theme-light;
     background: var(--color-background-secondary);
 }
 
@@ -43,5 +44,14 @@ body {
     padding: $fib-5 * 1px;
     box-sizing: border-box;
     position: relative;
+}
+
+.a-card {
+    height: 200px;
+
+    .header {
+        background: red;
+        height: 50px;
+    }
 }
 </style>

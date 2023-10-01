@@ -2,34 +2,33 @@
 
 <template>
     <a-card>
-        <template #header><slot name="info"></slot></template>
-        <template #footer><slot name="controls"></slot></template>
-        <div class="item rounded"><slot></slot></div>
+        <template #header>
+            <div class="item rounded top-only"><slot></slot></div>
+        </template>
+        <slot name="info"></slot>
     </a-card>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
 @import "apolo/styles.scss";
 
-.parallelogram {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    transform: skew(-20deg);
-    right: -5%;
-    background: var(--color-background);
-}
-
 .a-card {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    border-bottom: 1px solid;
-    border-color: var(--color-border);
-    width: fit-content;
+    // position: relative;
+    // display: flex;
+    // flex-direction: row;
+    // width: fit-content;
+    // min-width: fit-content;
     max-width: $fib-13 * 1px;
-    min-width: fit-content;
-    text-overflow: wrap;
+    // text-overflow: wrap;
+
+    .header {
+        padding: 0px !important;
+    }
+
+    .body,
+    .footer {
+        padding: $fib-6 * 1px !important;
+    }
 
     .item {
         $dot-color: var(--color-border);
@@ -44,7 +43,7 @@
             transparent 0
         );
         background-size: $size $size;
-        padding: $fib-7 * 1px;
+        padding: $fib-8 * 1px;
     }
 }
 </style>

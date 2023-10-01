@@ -14,21 +14,21 @@ const aSwitchProps = ref({
 
 <template>
     <demo-item>
-        <template #info>
-            <span>AButton</span>
-            <p class="secondary">A general purpose button.</p>
-        </template>
         <a-button v-bind="aButtonProps">
             <i class="bx bxs-bulb"></i>
             I'm a button
         </a-button>
+        <template #info>
+            <span>AButton</span>
+            <p class="secondary">A general purpose button.</p>
+        </template>
     </demo-item>
     <demo-item>
+        <a-switch v-bind="aSwitchProps"> </a-switch>
         <template #info>
             <span>ASwitch</span>
             <p class="secondary">A switch like button.</p>
         </template>
-        <a-switch v-bind="aSwitchProps"> </a-switch>
     </demo-item>
 </template>
 

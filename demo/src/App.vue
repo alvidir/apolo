@@ -33,7 +33,7 @@ import { RouterLink, RouterView } from "vue-router";
 }
 
 html {
-    @extend .theme-dark;
+    @extend .theme-light;
     background: var(--color-background-secondary);
 }
 
